@@ -20,9 +20,9 @@ La compilación se puede realizar de las dos siguientes maneras:
 
 ``` bash
 sh build.sh
-```
 
-``` bash
+# o bien, realizar:
+
 cmake . && make
 ```
 
