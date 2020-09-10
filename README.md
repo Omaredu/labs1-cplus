@@ -1,23 +1,32 @@
 # Actividades Laboratorio I y II
-## Equipo Tamalcoin
 
 <div align="center">
+    <br>
     <img src="https://i.imgur.com/KzWtOlf.png" height="200px">
+    <br>
+    <br>
+    <p style="color: rgba(0,0,0,0.3)">Equipo Tamalcoin</p>
+    <br>
 </div>
 
-requerimientos:
+## Requerimientos
 - cmake ( 2.8.9  o superior )
 - g++
 - make
 
-compilar:
+## Compilar
+
+La compilación se puede realizar de las dos siguientes maneras:
+
 ``` bash
 sh build.sh
 ```
-o
+
 ``` bash
 cmake . && make
 ```
+
+## Notas
 
 El archivo con terminación clima.celsius ( <strong>no borrar</strong> ) es importante para la correcta ejecución del ejercicio 3 del laboratorio II.
 
