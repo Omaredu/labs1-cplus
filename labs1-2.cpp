@@ -1,283 +1,337 @@
-//
-// Copyright (C) 2020 Geoffrey Porto <geoffrey.porto@tecmilenio.mx>
-//
-// Advanced C++ Programming CookBook
-// -----------------------------------------------------------------------------
 /*
+© 2020 team tamalcoin all rights reserved
 
-### Variables
-bool: almacena el valor verdadero o falso.
-char: normalmente un solo octeto (un byte). Este es un tipo entero.
-int: El tamaño más natural de entero para la máquina.
-float: un valor de punto flotante de precisión simple.
-doble: un valor de coma flotante de doble precisión.
-void: Representa la ausencia de tipo.
-wchar_t: un tipo de carácter amplio.
-
-### Operadores aritimétiicos
-Los operadores aritméticos se pueden utilizar para combinaciones apropiadas de estos tipos:				
-* x + y // sumar
-* +x // incrementar
-* x − y // menos
-* −x // decrementar
-* x ∗ y // multiplicar
-* x / y // dividir
-* x% y // resto (módulo) para enteros
-
-### Operadores de comparación
-También pueden los operadores de comparación:
-* x == y // igual
-* x! = y // no es igual
-* x <y // menor que
-* x> y // mayor que
-* x <= y // menor o igual x> = y // mayor o igual que
-
+tttttttt
+    t
+   ttt
+    t
+   ttt
+    t
+    t
 */
-
-
-/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-*  NOMBRE:  GEOFFREY PORTO                                    FECHA:              *
-*  MATRICULA:                                                                     *
-*  OBJETIVO: CALCULAR LA DISTANCIA ENTRE DOS PUNTOS USANDO TEOREAM DE PITAGORA    *
-*  ENTRADA: LAS COORDENADAS DE LOS DOS PUNTOS (X1, Y1) y (X2 , Y2)                *
-*  SALIDA: LA DISTANCIA ENTRE LOS DOS PUNTOS                                      *
-*                                                                                 *
-* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
-
-#ifdef NUMEROS
-
-#include <iostream>
-using namespace std;
- 
-int main () {
-   // Numeros
-   short  s;
-   int    i;
-   long   l;
-   float  f;
-   double d;
-   
-   // Valores
-   s = 10;      
-   i = 100;    
-   l = 100000; 
-   f = 170.27;  
-   d = 20741.957;
-   
-   // Mostrar los valores
-   cout << "short  s :" << s<< "\n";
-   cout << "int    i :" << i << "\n";
-   cout << "long   l :" << l << "\n";
-   cout << "float  f :" << f << "\n";
-   cout << "double d :" << d << "\n";
-
-   // operaciones mathematicas;
-   cout << "sin(d) :" << sin(d) << "\n";
-   cout << "abs(i)  :" << abs(i) << "\n";
-   cout << "floor(d) :" << floor(d) << "\n";
-   cout << "sqrt(f) :" << sqrt(f) << "\n";
-   cout << "pow( d, 2) :" << pow(d, 2) << "\n";
- 
-   return 0;
-}
-
-#endif
-
-
-/* 
-LABORATORIO DE ALGORITIMOS 
-
-Escribe los algoritmos para cada uno de los siguientes problemas:
-* 1. DISTANCIA: Calcular y desplegar la distancia que existe entre dos puntos dado que se proporcionan como dato de entrada los dos puntos (x1, y1) y (x2, y2).
-* 2. PARIMPAR: Determinar si el número dado como dato de entrada es “par” o “impar”  y Obtener y desplegar la suma de los impares de 1 a n donde n será dato de entrada.
-*/
-
-/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-*  NOMBRE:                                      FECHA:                              *
-*  MATRICULA:                                                                       *
-*  OBJETIVO: CALCULAR LA DISTANCIA ENTRE DOS PUNTOS USANDO TEOREAM DE PITAGORA      *
-*                                                                                   *
-*  ENTRADA: LAS COORDENADAS DE LOS DOS PUNTOS (X1, Y1) y (X2 , Y2)                  *
-*  SALIDA: LA DISTANCIA ENTRE LOS DOS PUNTOS                                        *
-*  COMPILACIÓN: sudo g++ -DPDISTANCIA nombre-equipo-lab1.cpp -o bin/distancia       *
-*                                                                                   *
-* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
-   
-
-#ifdef DISTANCIA
-
-#include <iostream>
-using namespace std; //Refatorización el código para usar definición de espacio de trabajo
-
-// para usar std::complex, std::real, std::imag 
-#include <complex>
-#include <cmath>
-#include <iomanip>
-   
-float distancia(float, float, float, float);
-   
-int main() { 
-
-    //Define variables de entrada y salida
-    float x1, x2, y1, y2, distancia;
-
-    //limpia pantalla
-    system("clear");
-
-    //imprimir titulo del programa
-    cout <<"\n\nCalculo de la distancia entre dos puntos en el plano cartesiano. \n";
-    
-    //Solicitando del usuario los datos de entrada
-    cout <<"\n\nIntroduzca las coordenadas del primer punto x1 y x2: \n";
-    cin >> x1 >> x2;
-
-    //Solicitando del usuario los datos de entrada
-    cout <<"\nIntroduzca las coordenadas del segundo punto y1 y y2: \n";
-    cin >> y1 >> y2;
-
-    //Calculando la distancia
-    distancia = sqrt((x1 - y1)*(x1 - y1 ) + (x2 - y2)*(x2 - y2));
-
-    //Imprime al usuario los datos de salida
-    cout <<"\nLa distancia entre los puntos x1("<<x1 <<"), y1("<<y1 <<") y x2("<<x2 <<"), y2("<<y2 <<") es : " <<distancia << "\n";
-
-    return 0;
-   
-}
-
-#endif
-
-
-/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-*  NOMBRE:                                     FECHA:                               *
-*  MATRICULA:                                                                       *
-*  OBJETIVO: CALCULAR EL PAR O IMPARR DE LOS NUMERO                                 *
-*                                                                                   *
-*  ENTRADA: NUMEROS ENTEROS                                                         *
-*  SALIDA: MOSTRAR SI EL(OS) SON PAR O IMPAR                                        *
-*  COMPILACIÓN: sudo g++ -DPARIMPAR class.cpp -o bin/parimpar                       *
-* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
-   
-
-#ifdef PARIMPAR
-
-#include <iostream>
-using namespace std; //Refatorización el código para usar definición de espacio de trabajo
-
-// para usar std::complex, std::real, std::imag 
-#include <complex>
-#include <cmath>
-#include <iomanip>
-   
-int main() { 
-    
-    //Define variables de entrada y salida
-    int num;
-
-    //Variables para calcular la cantidad de pares e impares
-    int n, p=0,i=0,c=0,x;
-
-    //limpia pantalla
-    system("clear");
-
-    //Solicitando del usuario los datos de entrada
-    cout<<"Escriba un numero: ";
-    cin>>num;
-
-    //Comparando si el numero es par o impar, si las residuo de la división es ==0, entpnces es par, caso contrario es impar.
-    if(num % 2 == 0){
-        cout<<"El numero es Par\n";
-    } else {
-        cout<<"El numero es Impar\n";
-    }
-    
-    
-    //Solicitando del usuario los datos de entrada
-    cout<<"Ingresar cantidad de numeros par e impares:";
-    cin>>n;
-
-    //Ejecutando el ciclo de hasta n veces
-    while (c<n)
-    {
-        cout<<"Ingresar numero:";
-        cin>>x;
-
-        //Calularr la suma de numeros par e impar
-        if(x % 2==0)
-            p=p+1;
-        else
-            i=i+1;
-            c=c+1;
-    }
-
-    //Imprime al usuario los datos de salida
-    cout<<"los numeros pares son:"<<p<< "\n";
-    cout<<"los numeros impares son:"<<i<< "\n";
-}
-
-#endif
 
 
 /* 
   LABORATORIO DE ALGORITIMOS I
-
-1. Crear algoritimo para obtener y despliega el área de un triángulo cuando el usuario proporciona como datos de entrada la base y la altura.
-2. Crear algoritimo para determinr si el número dado por el usuario es “primo”, "negativo < -10 ",“positivo > 100 ” o “cero”.
-3. Crear algoritimo para determinar el promedio de los números pares y el promedio de los números impares de una lista de valores enteros proporcionada por el usuario donde el último número es un cero.
-
 */
 
-/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-*  NOMBRE:                                     FECHA:                               *
-*  MATRICULA:                                                                       *
-*  OBJETIVO: CALCULAR EL AREA DEL TRIANGULO                                         *
-*                                                                                   *
-*  ENTRADA:                                                                         *
-*  SALIDA: MOSTRAR EL AREA DEL TRIANGULO                                            *
-*  COMPILACIÓN: sudo g++ -DAREATRRINAGULO equipo-nombre-lab1.cpp -o bin/areatriangulo *
-* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*  NOMBRE: Equipo Tamalcoin                                    FECHA: 9 sep           *
+*  MATRICULA:2698666, 2973763, 2865886, 2974433, 2968553, 2925786, 2850341, 2776108   *
+*  OBJETIVO: CALCULAR EL AREA DEL TRIANGULO                                           *
+*                                                                                     *
+*  ENTRADA: DATOS PROPORCIONADOS POR EL USUARIO                                       *
+*  SALIDA: MOSTRAR EL AREA DEL TRIANGULO                                              *
+*  COMPILACIÓN: sudo g++ -DAREATRINAGULO equipo-nombre-lab1.cpp -o bin/areatriangulo  *
+* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 
+//1. Crear algoritimo para obtener y despliega el área de un triángulo cuando el usuario proporciona como datos de entrada la base y la altura.
 
 #ifdef AREATRIANGULO
-//Código aqui...
+
+#include <iostream>
+#include <math.h>
+
+using namespace std;
+
+int main(){
+    float base, altura, area;
+    system("clear");
+
+    cout << "Ingresar datos de base y altura" << endl;
+    cin >> base >> altura;
+
+    area = (base*altura)/2.0;
+
+    cout << "Tu resultado es:" << area << endl;
+
+    return 0;
+}
 
 #endif
+
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*  NOMBRE: Equipo Tamalcoin                   FECHA: 9 de sep de 2020                       *
+*  MATRICULA: 2698666, 2973763, 2865886, 2974433, 2968553, 2925786, 2850341, 2776108        *
+*  OBJETIVO: CALCULAR SI EL NUMERO ES PRIMO, NEGATIVO, POSITIVO O CERO                      *
+*                                                                                           *
+*  ENTRADA: NUMEROS PROPORCIONADOS POR EL USUARIO                                           *
+*  SALIDA: LOS NUMEROS CLASIFICADOS                                                         *
+*  COMPILACIÓN: sudo g++ -DNUMEROSPRIMONEGPOSCERO labs1-2.cpp -o bin/numerospromonegposcero *
+* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+
+
+// 2. Crear algoritimo para determinar si el número dado por el usuario es “primo”, "negativo < -10 ",“positivo > 100 ” o “cero”.
 
 #ifdef NUMEROSPRIMONEGPOSCERO
-//Código aqui...
+
+    #include <iostream>
+
+    using namespace std;
+
+    bool es_primo (int numero) {
+        if (numero%2 == 0)
+            return true;
+        else
+            return false;
+    }
+
+    void es_negativo (int numero) {
+        if (numero < 0 && numero <! -10)
+            cout << "El numero es negativo pero no es menor a -10" << endl;
+        else if (numero < -10)
+            cout << "El numero es menor a -10" << endl;
+    }
+
+    void es_positivo (int numero) {
+        if (numero > 0 && numero >! 100)
+            cout << "El numero es positivo pero no es mayor a 100" << endl;
+        else if (numero > 100)
+            cout << "El numero es mayor a 100" << endl;
+    }
+
+    void es_cero (int numero) {
+        if (numero == 0)
+            cout << "El numero es cero" << endl;
+    }
+
+    int main () {
+        int numero;
+        system("clear");        
+
+        cout << "Introduce un numero entero, porfavor: ";
+        cin >> numero;
+        cout << "\n";
+        cout << "Tu numero es primo: " << es_primo(numero) << endl;
+        es_negativo(numero);
+        es_positivo(numero);
+        es_cero(numero);
+
+        return 0;
+    }
 
 #endif
+
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*\
+*  NOMBRE: Equipo Tamalcoin                   FECHA: 9 de sep de 2020                     *
+*  OBJETIVO: CALCULAR PROMEDIO DE NUMEROS PARES E IMPARES                                 *
+*  MATRICULA: 2698666, 2973763, 2865886, 2974433, 2968553, 2925786, 2850341, 2776108      *
+*                                                                                         *
+*  ENTRADA: LISTA DE NUMEROS PROPORCIONADA POR EL USUARIO                                 *
+*  SALIDA: PROMEDIOS DE LOS NUMEROS PARES E IMPARES                                       *
+*  COMPILACIÓN: sudo g++ -DPROMEDIOPARESIMPARES labs1-2.cpp -o bin/promedioparesimpares   *
+* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+
+
+// 3. Crear algoritimo para determinar el promedio de los números pares y el promedio de los números impares de una lista de valores enteros proporcionada por el usuario donde el último número es un cero.
 
 #ifdef PROMEDIOSPARESIMPARES
-//Código aqui...
+
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+int main () {
+    vector<int> tamales;
+    int numero_tamales = 0, valor, sumatoria_pares = 0, sumatoria_impares = 0, numero_pares = 0, numero_impares = 0;
+    system("clear");
+
+    cout << "Buenos dias/tardes/noches. ¿Cuantos tamales(valores) gusta ingresar el dia de hoy? ";
+    cin >> numero_tamales;
+
+    cout << "Ingrese sus tamales(valores):" << endl;
+    for (int i = 0; i < numero_tamales; i++) {
+        cin >> valor;
+        tamales.push_back(valor);
+    }
+    
+    for (int i = 0; i < tamales.size(); i++) {
+        if (tamales[i]%2 == 0 ) {
+            sumatoria_pares += tamales[i];
+            numero_pares++;
+        }
+        else{
+            sumatoria_impares += tamales[i];
+            numero_impares++;
+        }
+    }
+
+    cout << "El proceso se ha finalizado, caballero/dama, muchas gracias por esperar, los resultados de esta compleja operacion son: \npromedio impares: " << sumatoria_impares / numero_impares << "\npromedio pares: " << sumatoria_pares / numero_pares << endl;
+
+    return 0;
+}
 
 #endif
 
+//LABORATORIO DE ALGORITIMOS II
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*  NOMBRE: Equipo Tamalcoin                   FECHA: 9 de sep de 2020                  *
+*  MATRICULA: 2698666, 2973763, 2865886, 2974433, 2968553, 2925786, 2850341, 2776108   *
+*  OBJETIVO: CALCULAR AREA Y VOLUMEN DE UN CILINDRO                                    *
+*                                                                                      *
+*  ENTRADA: ALTURA Y RADIO PROPORCIONADA POR EL USUARIO                                *
+*  SALIDA: EL AREA Y VOLUMEND DEL CILINDRO                                             *
+*  COMPILACIÓN: sudo g++ -DCILINDRO labs1-2.cpp -o bin/cilindro                        *
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 
 
-/*
-LABORATORIO DE ALGORITIMOS II
+//1. Crear algoritimo para determinar el área y volumen de un cilindro dado su radio (R) y altura (H).
 
-1. Crear algoritimo para determinar el área y volumen de un cilindro dado su radio (R) y altura (H).
-2. Crear algoritimo para determinar el total a pagar por el cliente en una tienda que ofrece descuentos por temporada dependiendo del total comprado:
+#ifdef CILINDRO
+
+#include <iostream>
+#include <math.h>
+#define _USE_MATH_DEFINES
+
+using namespace std;
+
+float sacar_volumen (float altura, float radio) {
+    return ((M_PI * pow(radio, 2)) * altura);
+}
+
+float sacar_area (float altura, float radio) {
+    float area_caras = (M_PI * pow(radio, 2)) * 2.0;
+    float area_lateral = (2.0 * (radio * M_PI * altura));
+    return area_caras + area_lateral;    //2 π rh
+}
+
+int main () {
+    float altura, radio;
+    system("clear");
+    
+    cout << "El area de un cilindro es diametro por altura, asi que dame tu radio y tu altura:" << endl;
+    cin >> radio >> altura;
+
+    cout << "El area total del cilindro es:" << sacar_area(altura, radio) << "m2" << endl;
+    cout << "El volumen total del cilindro es:" << sacar_volumen(altura, radio) << "m3" << endl;
+}
+
+#endif
+
+/*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*  NOMBRE: Equipo Tamalcoin                   FECHA: 9 de sep de 2020                  *
+*  MATRICULA: 2698666, 2973763, 2865886, 2974433, 2968553, 2925786, 2850341, 2776108   *
+*  OBJETIVO: CALCULAR EL PAGO TOTAL DE UN CLIENTE DEPENDIENDO DE LA CANTIDAD           *
+*                                                                                      *
+*  ENTRADA: CANTIDAD PROPORCIONADA POR EL USUARIO                                      *
+*  SALIDA: EL TOTAL A PAGAR DESPUES DE LOS DESCUENTOS                                  *
+*  COMPILACIÓN: sudo g++ -DTOTALAPAGAR labs1-2.cpp -o bin/totalapagar                  *
+* +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+
+
+/*2. Crear algoritimo para determinar el total a pagar por el cliente en una tienda que ofrece descuentos por temporada dependiendo del total comprado:
     * Si la compra es menor a 300 pesos, el descuento es del 5%.
-    * Si la compra es de 301 a 1000 pesos, el descuento es del 5%.
-    * Si la compra es superior a 100 pesos el descuento es del 15%.
-3. Para un estudio meteorológico se registra el promedio de temperatura diaria. Con base en los registros de 15 dias, se debe obtener la siguiente información:
-    * La mayor temperatura de la quincena y el día en el que ocurrió.
-    * La menor temperatura de la quincena y el día en el que ocurrió.
+    * Si la compra es de 301 a 1000 pesos, el descuento es del 10%.
+    * Si la compra es superior a 1001 pesos el descuento es del 15%.*/
+
+#ifdef TOTALAPAGAR   
+
+#include <iostream>
+#include <math.h>
+
+int dinero;
+int zinko_peso;
+int die_peso;
+int kince_peso;
+int temporal;
+
+using namespace std;
+int main(){
+    system("clear");
+
+    cout << "Costo total de los tamales de usted dama/caballero:" << endl;
+    cin >> dinero;
+
+    //si el dinero es menor a 300 se hace un descuento de 5%
+    if (dinero < 300){
+        cout<< "Tu descuento es de 5%"<< endl;
+        temporal = dinero * 0.05;
+        zinko_peso = dinero - temporal;
+        cout<< "Total a pagar:"<< zinko_peso << endl;
+    }
+    //si el dinero es mayor de 301 y menor 1000 se hace un descuento de 10%
+    else if(dinero < 301 && dinero > 1000){
+        cout << "Tu descuento es de 10%"<< endl;
+        temporal = dinero * .1;
+        die_peso = dinero - temporal;
+        cout<< "Total a pagar:"<<die_peso<< endl;
+    }
+    //si el dinero es mayor de 1000 se hace un decuento de 15%
+    else{
+        cout << "Tu descuento es de 15%"<< endl;
+        temporal = dinero * .15;
+        kince_peso = dinero - temporal;
+        cout << "Total a pagar:"<<kince_peso<<endl;
+    }
+    
+    return 0;
+}
+
+#endif
+
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+*  NOMBRE: Equipo Tamalcoin                   FECHA: 9 de sep de 2020                   *
+*  MATRICULA: 2698666, 2973763, 2865886, 2974433, 2968553, 2925786, 2850341, 2776108    *
+*  OBJETIVO: CALCULAR PROMEDIOS METEOROLÓGICOS                                          *
+*                                                                                       *
+*  ENTRADA: ARCHIVO clima.celsius                                                       *
+*  SALIDA: PROMEDIOS METEOROLÓGICOS                                                     *
+*  COMPILACIÓN: sudo g++ -DMETEOROLOGIA labs1-2.cpp -o bin/meteorologia                 *
+* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+
+
+/*3. Para un estudio meteorológico se registra el promedio de 
+temperatura diaria. 
+Con base en los registros de 15 dias, se debe obtener la siguiente 
+información:
+    * La mayor temperatura de la quincena y el día en el que ocurrió. /
+    * La menor temperatura de la quincena y el día en el que ocurrió. /
     * La temperatura promedio de la quincena.
     * La temperatura promedio de la primera semana del mes.
-    * La temperatura promedio de la segunda semana del mes.
-*/
+    * La temperatura promedio de la segunda semana del mes. */
 
+#ifdef METEOROLOGIA
 
-/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-*  NOMBRE:                                     FECHA:                               *
-*  MATRICULA:                                                                       *
-*  OBJETIVO: CALCULAR LA AREA Y VOLUMEN DEL CILINDRO                                *
-*                                                                                   *
-*  ENTRADA:                                                                         *
-*  SALIDA: MOSTRAR EL AREA Y VOLUMEN DEL TRIANGULO                                  *
-*  COMPILACIÓN: sudo g++ -DAREAVOLCILINDRO equipo-nombre-lab2.cpp -o bin/areavolcil *
-* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+#include <iostream>
+#include "celsius/Celsius.hpp"
+
+#define DIAS_DE_LA_SEMANA 7.0
+#define DIAS_DE_LA_QUINCENA 15.0
+
+using namespace std;
+
+int main () {
+    system("clear");
+
+    tuple<string, int> clima_maximo, clima_minimo;
+    int conteo_semana_uno = 0, conteo_semana_dos = 0, conteo_quincenal = 0;
+
+    const char *ruta_archivo = "./clima.celsius";
+    Celsius clima(ruta_archivo);
+    
+    clima_maximo = clima.get_maximum();
+    clima_minimo = clima.get_minimum();
+    
+    for (int i = 0; i < DIAS_DE_LA_QUINCENA; i++) {
+        conteo_quincenal += clima.get_day_temperature(i);
+
+        if (i < DIAS_DE_LA_SEMANA)
+            conteo_semana_uno += clima.get_day_temperature(i);
+        else
+            conteo_semana_dos += clima.get_day_temperature(i);
+    }
+
+    cout << "Buenos días/tardes/noches, le informamos de parte del equipo tamalcoin, que los datos climáticos son adquiridos de la siguiente ruta: " << ruta_archivo << endl;
+    //resultados
+    cout << "El promedio quincenal es: " << conteo_quincenal/DIAS_DE_LA_QUINCENA << endl;
+    cout << "El promedio de la semana uno es: " << conteo_semana_uno/DIAS_DE_LA_SEMANA << endl;
+    cout << "El promedio de la semana dos es: " << conteo_semana_dos/DIAS_DE_LA_SEMANA << endl;
+    cout << "El clima máximo presentado en los valores ingresados es: " << get<1>(clima_maximo) << " y se presento el día " << get<0>(clima_maximo) << endl;
+    cout << "El clima mínimo presentado en los valores ingresados es: " << get<1>(clima_minimo) << " y se presento el día " << get<0>(clima_minimo) << endl;
+
+    return 0;
+}
+    
+#endif

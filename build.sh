@@ -1,0 +1,2 @@
+sudo cmake .
+sudo make
