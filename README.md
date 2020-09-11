@@ -9,8 +9,6 @@
     <br>
 </div>
 
-#
-
 ## Requerimientos
 - cmake ( 2.8.9  o superior )
 - g++
