@@ -35,8 +35,11 @@ tttttttt
 using namespace std;
 
 int main(){
+    #ifndef WINDOWS
+        system("clear");
+    #endif // !WINDOWS
+
     float base, altura, area;
-    system("clear");
 
     cout << "Ingresar datos de base y altura" << endl;
     cin >> base >> altura;
@@ -44,6 +47,10 @@ int main(){
     area = (base*altura)/2.0;
 
     cout << "Tu resultado es:" << area << endl;
+
+    #ifdef WINDOWS
+        system("PAUSE");
+    #endif
 
     return 0;
 }
@@ -96,8 +103,11 @@ int main(){
     }
 
     int main () {
-        int numero;
-        system("clear");        
+        #ifndef WINDOWS
+            system("clear");
+        #endif // !WINDOWS
+
+        int numero;       
 
         cout << "Introduce un numero entero, porfavor: ";
         cin >> numero;
@@ -106,6 +116,10 @@ int main(){
         es_negativo(numero);
         es_positivo(numero);
         es_cero(numero);
+
+        #ifdef WINDOWS
+            system("PAUSE");
+        #endif
 
         return 0;
     }
@@ -133,9 +147,12 @@ int main(){
 using namespace std;
 
 int main () {
+    #ifndef WINDOWS
+        system("clear");
+    #endif // !WINDOWS
+
     vector<int> tamales;
     int numero_tamales = 0, valor, sumatoria_pares = 0, sumatoria_impares = 0, numero_pares = 0, numero_impares = 0;
-    system("clear");
 
     cout << "Buenos dias/tardes/noches. ¿Cuantos tamales(valores) gusta ingresar el dia de hoy? ";
     cin >> numero_tamales;
@@ -158,6 +175,10 @@ int main () {
     }
 
     cout << "El proceso se ha finalizado, caballero/dama, muchas gracias por esperar, los resultados de esta compleja operacion son: \npromedio impares: " << sumatoria_impares / numero_impares << "\npromedio pares: " << sumatoria_pares / numero_pares << endl;
+
+    #ifdef WINDOWS
+        system("PAUSE");
+    #endif
 
     return 0;
 }
@@ -198,14 +219,23 @@ float sacar_area (float altura, float radio) {
 }
 
 int main () {
+    #ifndef WINDOWS
+        system("clear");
+    #endif // !WINDOWS
+
     float altura, radio;
-    system("clear");
     
     cout << "El area de un cilindro es diametro por altura, asi que dame tu radio y tu altura:" << endl;
     cin >> radio >> altura;
 
     cout << "El area total del cilindro es:" << sacar_area(altura, radio) << "m2" << endl;
     cout << "El volumen total del cilindro es:" << sacar_volumen(altura, radio) << "m3" << endl;
+
+    #ifdef WINDOWS
+        system("PAUSE");
+    #endif
+
+    return 0;
 }
 
 #endif
@@ -239,7 +269,9 @@ int temporal;
 
 using namespace std;
 int main(){
-    system("clear");
+    #ifndef WINDOWS
+        system("clear");
+    #endif // !WINDOWS
 
     cout << "Costo total de los tamales de usted dama/caballero:" << endl;
     cin >> dinero;
@@ -265,6 +297,10 @@ int main(){
         kince_peso = dinero - temporal;
         cout << "Total a pagar:"<<kince_peso<<endl;
     }
+
+    #ifdef WINDOWS
+        system("PAUSE");
+    #endif
     
     return 0;
 }
@@ -303,7 +339,9 @@ información:
 using namespace std;
 
 int main () {
-    system("clear");
+    #ifndef WINDOWS
+        system("clear");
+    #endif // !WINDOWS
 
     tuple<string, int> clima_maximo, clima_minimo;
     int conteo_semana_uno = 0, conteo_semana_dos = 0, conteo_quincenal = 0;
@@ -330,6 +368,10 @@ int main () {
     cout << "El promedio de la semana dos es: " << conteo_semana_dos/DIAS_DE_LA_SEMANA << endl;
     cout << "El clima máximo presentado en los valores ingresados es: " << get<1>(clima_maximo) << " y se presento el día " << get<0>(clima_maximo) << endl;
     cout << "El clima mínimo presentado en los valores ingresados es: " << get<1>(clima_minimo) << " y se presento el día " << get<0>(clima_minimo) << endl;
+
+    #ifdef WINDOWS
+        system("PAUSE");
+    #endif
 
     return 0;
 }
