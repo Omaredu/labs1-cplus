@@ -69,7 +69,7 @@ int main(){
 
 
 // 2. Crear algoritimo para determinar si el número dado por el usuario es “primo”, "negativo < -10 ",“positivo > 100 ” o “cero”.
-
+#define NUMEROSPRIMONEGPOSCERO
 #ifdef NUMEROSPRIMONEGPOSCERO
 
     #include <iostream>
@@ -77,10 +77,13 @@ int main(){
     using namespace std;
 
     bool es_primo (int numero) {
-        if (numero%2 == 0)
-            return true;
-        else
+        if (numero == 0 || numero == 1 || numero == 4) 
             return false;
+
+        for (int i = 2; i < numero / 2; i++)
+            if (numero % i == 0) { return false; }
+    
+        return true;
     }
 
     void es_negativo (int numero) {
