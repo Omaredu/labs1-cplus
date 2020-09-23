@@ -69,7 +69,6 @@ int main(){
 
 
 // 2. Crear algoritimo para determinar si el número dado por el usuario es “primo”, "negativo < -10 ",“positivo > 100 ” o “cero”.
-#define NUMEROSPRIMONEGPOSCERO
 #ifdef NUMEROSPRIMONEGPOSCERO
 
     #include <iostream>
